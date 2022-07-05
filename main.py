@@ -54,9 +54,13 @@ def add_row(exercise):
         'duration': exercise.duration,
         'calories': exercise.calories,
     }}
+    headers = {
+        'Authorization': f'Basic {os.getenv("AUTH_HEADER")}'
+    }
     requests.post(
         url=ADD_ROW,
-        json=body
+        json=body,
+        headers=headers
     )
 
 
